@@ -1,0 +1,57 @@
+= validate_block
+
+* http://github.com/xunker/validate_block
+
+== DESCRIPTION:
+
+This gem allows similar ActiveRecord validates_* commands to be grouped together in blocks and pruned of repeated parameters.
+
+How often have you had a block of validation commands in an ActiveRecord object that are repeated, especially :id or :unless options?  Does this look familiar?
+
+  validates_presence_of  :hair, :unless => :bald?
+  validates_length_of    :hair, :within => 3..15, :unless => :bald?
+  validates_inclusion_of :hair_color, :in => HAIR_COLORS, :unless => bald?
+  
+Instead, this gem will allow you to replace the above code with:
+
+  validate_block :unless => :bald? do
+    presence_of  :hair
+    length_of    :hair, :within => 3..15
+    inclusion_of :hair_color, :in => HAIR_COLORS
+  end
+  
+..which is a great way to DRY your :hair, don't you think?
+
+Basically, this gem 1) removes the requirement to have 'validates_' on the front of the commands and 2) passes the options on the validate_block command to each validation command inside the block.
+
+The syntax of the validation commands remains the same.  Keeping the 'validate_*' prefix on the commands inside the block _will_ work but it is not required.
+
+WARNING: There are no specs for this yet because I suck.  Actually, it's because I don't properly understand how to spec a module like this so any help on that front would be appreciated.
+
+== SYNOPSIS:
+
+require 'rubygems'
+require 'activerecord'
+require 'validate_block'
+
+class SomeObject < ActiveRecord::Base
+
+  validate_block :if => :some_method? do
+    presence_of :some_field
+    inclusion_of :some_other_field, :in => SOME_VALUES
+  end
+  
+end
+
+== REQUIREMENTS:
+
+ActiveRecord >= 2.1.0
+Rspec (for specs)
+
+== INSTALL:
+
+sudo gem install validate_block
+
+== LICENSE:
+
+http://sam.zoy.org/wtfpl/COPYING

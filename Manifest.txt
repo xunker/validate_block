@@ -1,0 +1,12 @@
+History.txt
+Manifest.txt
+README.rdoc
+Rakefile
+lib/validate_block.rb
+script/console
+script/destroy
+script/generate
+spec/spec.opts
+spec/spec_helper.rb
+spec/validate_block_spec.rb
+tasks/rspec.rake
