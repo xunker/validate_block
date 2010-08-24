@@ -24,7 +24,7 @@ Instead, this gem will allow you to replace the above code with:
 
 Basically, this gem 1) removes the requirement to have 'validates_' on the front of the commands and 2) passes the options on the validate_block command to each validation command inside the block.
 
-The syntax of the validation commands remains the same.  Keeping the 'validate_*' prefix on the commands inside the block _will_ work but it is not required.
+The syntax of the validation commands remains the same.  Keeping the 'validates_*' prefix on the commands inside the block _will_ work but it is not required.
 
 WARNING: There are no specs for this yet because I suck.  Actually, it's because I don't properly understand how to spec a module like this so any help on that front would be appreciated.
 
