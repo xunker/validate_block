@@ -30,23 +30,22 @@ WARNING: There are no specs for this yet because I suck.  Actually, it's because
 
 == SYNOPSIS:
 
-require 'rubygems'
-require 'activerecord'
-require 'validate_block'
+  require 'rubygems'
+  require 'activerecord'
+  require 'validate_block'
 
-class SomeObject < ActiveRecord::Base
+  class SomeObject < ActiveRecord::Base
 
-  validate_block :if => :some_method? do
-    presence_of :some_field
-    inclusion_of :some_other_field, :in => SOME_VALUES
-  end
+    validate_block :if => :some_method? do
+      presence_of :some_field
+      inclusion_of :some_other_field, :in => SOME_VALUES
+    end
   
-end
+  end
 
 == REQUIREMENTS:
 
-ActiveRecord >= 2.1.0
-Rspec (for specs)
+  ActiveRecord >= 2.1.0
 
 == INSTALL:
 
