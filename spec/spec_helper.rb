@@ -7,6 +7,7 @@ rescue LoadError
 end
 
 $:.unshift(File.dirname(__FILE__) + '/../lib')
+require 'rubygems'
 require 'active_record'
 require 'active_record/version'
 require 'action_controller'
