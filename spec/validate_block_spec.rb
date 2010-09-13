@@ -9,7 +9,7 @@ class Person < ActiveRecord::Base
   end
 
   validate_block :unless => :bald? do
-    presence_of  :hair
+    presence_of  :hair, :hair_color
     length_of    :hair, :within => 3..15
     inclusion_of :hair_color, :in => HAIR_COLORS
   end

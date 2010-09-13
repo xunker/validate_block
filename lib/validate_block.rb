@@ -9,11 +9,17 @@ module ActiveRecord
         yield
       end
 
-      def method_missing(name, attrib, opts = {}, &block)
+      def method_missing(name, *args, &block)
+        if args.last.class == Hash
+          args.last.merge!(@block_opts)
+        else
+          args << @block_opts
+        end
+        
         if name.to_s =~ /^validates_/
-          send(name, attrib, opts.merge(@block_opts))
+          send(name, *args)
         elsif respond_to?(("validates_"+name.to_s).to_sym)
-          send(("validates_"+name.to_s).to_sym, attrib, opts.merge(@block_opts))
+          send(("validates_"+name.to_s).to_sym, *args)
         else
           super
         end

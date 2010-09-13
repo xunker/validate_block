@@ -8,14 +8,14 @@ This gem allows similar ActiveRecord validates_* commands to be grouped together
 
 How often have you had a block of validation commands in an ActiveRecord object that are repeated, especially :id or :unless options?  Does this look familiar?
 
-  validates_presence_of  :hair, :unless => :bald?
+  validates_presence_of  :hair, :hair_color, :unless => :bald?
   validates_length_of    :hair, :within => 3..15, :unless => :bald?
   validates_inclusion_of :hair_color, :in => HAIR_COLORS, :unless => bald?
   
 Instead, this gem will allow you to replace the above code with:
 
   validate_block :unless => :bald? do
-    presence_of  :hair
+    presence_of  :hair, :hair_color
     length_of    :hair, :within => 3..15
     inclusion_of :hair_color, :in => HAIR_COLORS
   end

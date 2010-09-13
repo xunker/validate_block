@@ -1,3 +1,9 @@
+=== 0.2.0 2010-09-13
+
+* changed method_missing to accept params in *args to fix bug where
+  'validates_presence_of' would fail if more than one attribute was
+  given.
+
 === 0.1.1 2010-09-10
 
 * added specs from justinbaker
