@@ -2,6 +2,10 @@
 
 * http://github.com/xunker/validate_block
 
+=== DEPRECATION NOTICE
+This gem is NOT maintained. The funcationality has been replaced by ActiveRecord `with_option`: http://guides.rubyonrails.org/active_record_validations.html#grouping-conditional-validations.
+I'd like to think this gem had a little something to do with that being added to AR :)
+
 == DESCRIPTION:
 
 This gem allows similar ActiveRecord validates_* commands to be grouped together in blocks and pruned of repeated parameters.
